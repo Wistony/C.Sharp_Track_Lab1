@@ -6,7 +6,7 @@ namespace Lab1_CreationalPatterns
 {
     public abstract class Weapon
     {
-        public abstract int Durability { get; }
+        public abstract int Durability { get;}
         public abstract int HitDamage { get; }
         public abstract float Accuracy { get; }
 
@@ -15,6 +15,19 @@ namespace Lab1_CreationalPatterns
         {
             Console.WriteLine($"Caused {HitDamage} damage");
         }
+        public void GetHitDamage()
+        {
+            Console.WriteLine($"HitDamage - {HitDamage} points");
+        }
+        public void GetAccuracy()
+        {
+            Console.WriteLine($"Accuracy - {Accuracy * 100}%");
+        }
+        public void GetDurability()
+        {
+            Console.WriteLine($"Durability - {Durability}");
+        }
+
     }
 
     public class Rifle : Weapon
@@ -22,10 +35,10 @@ namespace Lab1_CreationalPatterns
         public override int Durability => 300;
         public override int HitDamage => 50;
         public override float Accuracy => 0.7f;
-
+        
         public override void Hit()
         {
-            Console.WriteLine("Shoot with a rifle");
+            Console.WriteLine($"Shoot with a rifle");
             GetDamage();
         }
     }
@@ -65,6 +78,19 @@ namespace Lab1_CreationalPatterns
         public override void Hit()
         {
             Console.WriteLine("Shoot with a tank gun");
+            GetDamage();
+        }
+    }
+
+    public class MachineGun : Weapon
+    {
+        public override int Durability => 300;
+        public override int HitDamage => 25;
+        public override float Accuracy => 0.75f;
+
+        public override void Hit()
+        {
+            Console.WriteLine("Shoot with a machine gun");
             GetDamage();
         }
     }

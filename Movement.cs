@@ -38,4 +38,14 @@ namespace Lab1_CreationalPatterns
             Console.WriteLine($"Ride at speed {Speed} km/h");
         }
     }
+
+    class FlyMovement : Movement
+    {
+        public override int Speed => 40;
+
+        public override void Move()
+        {
+            Console.WriteLine($"Fly at speed {Speed} km/h");
+        }
+    }
 }

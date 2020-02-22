@@ -26,7 +26,7 @@ namespace Lab1_CreationalPatterns
 
         public override void SetWeapon()
         {
-            this.Unit.weapon = new Rifle();
+            this.Unit.Weapon = new Rifle();
         }
 
         public override void SetType()
@@ -36,7 +36,7 @@ namespace Lab1_CreationalPatterns
 
         public override void SetHealth()
         {
-            this.Unit.StartHealth = 300;
+            this.Unit.StartHealth = this.Unit.HealthLeft = 300; 
         }
     }
 
@@ -49,7 +49,7 @@ namespace Lab1_CreationalPatterns
 
         public override void SetWeapon()
         {
-            this.Unit.weapon = new SniperRifle();
+            this.Unit.Weapon = new SniperRifle();
         }
 
         public override void SetType()
@@ -59,7 +59,7 @@ namespace Lab1_CreationalPatterns
 
         public override void SetHealth()
         {
-            this.Unit.StartHealth = 200;
+            this.Unit.StartHealth = this.Unit.HealthLeft = 200;
         }
     }
 
@@ -72,7 +72,7 @@ namespace Lab1_CreationalPatterns
 
         public override void SetWeapon()
         {
-            this.Unit.weapon = new Sword();
+            this.Unit.Weapon = new Sword();
         }
 
         public override void SetType()
@@ -82,7 +82,7 @@ namespace Lab1_CreationalPatterns
 
         public override void SetHealth()
         {
-            this.Unit.StartHealth = 350;
+            this.Unit.StartHealth = this.Unit.HealthLeft = 350;
         }
     }
 
@@ -95,7 +95,7 @@ namespace Lab1_CreationalPatterns
 
         public override void SetWeapon()
         {
-            this.Unit.weapon = new TankGun();
+            this.Unit.Weapon = new TankGun();
         }
 
         public override void SetType()
@@ -105,9 +105,31 @@ namespace Lab1_CreationalPatterns
 
         public override void SetHealth()
         {
-            this.Unit.StartHealth = 450;
+            this.Unit.StartHealth = this.Unit.HealthLeft = 450;
         }
     }
 
+    public class PlaneBuilder : UnitBuilder
+    {
+        public override void SetMovement()
+        {
+            this.Unit.MovementLogic = new FlyMovement();
+        }
+
+        public override void SetWeapon()
+        {
+            this.Unit.Weapon = new MachineGun();
+        }
+
+        public override void SetType()
+        {
+            this.Unit.Type = "Plane";
+        }
+
+        public override void SetHealth()
+        {
+            this.Unit.StartHealth = this.Unit.HealthLeft = 425;
+        }
+    }
 
 }

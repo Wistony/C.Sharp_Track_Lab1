@@ -6,9 +6,9 @@ namespace Lab1_CreationalPatterns
 {
     public interface IAttackable
     {
-        int StartHealth { get; }
-        int HealthLeft { get; }
-
+        int StartHealth { get;}
+        int HealthLeft { get;}
+       
         void ReceiveDamage(int damageAmount);
     }
 
@@ -18,11 +18,18 @@ namespace Lab1_CreationalPatterns
         public int StartHealth { get; set; }
         public int HealthLeft { get; set; }
         public Movement MovementLogic { get; set; }
-        public Weapon weapon { get; set; }
+        public Weapon Weapon { get; set; }
 
         public void Hit()
         {
-            weapon.Hit();
+            if (HealthLeft > 0)
+            {
+                Weapon.Hit();
+            }
+            else
+            {
+                Console.WriteLine("Unit dead");
+            }
         }
 
         public void ReceiveDamage(int damageAmount)
@@ -32,11 +39,22 @@ namespace Lab1_CreationalPatterns
             {
                 Console.WriteLine("I`m died");
             }
+            else
+            {
+                Console.WriteLine($"{HealthLeft} points of healths are left");
+            }
         }
 
         public void Move()
         {
-            MovementLogic.Move();
+            if (HealthLeft > 0)
+            {
+                MovementLogic.Move();
+            }
+            else
+            {
+                Console.WriteLine("Unit dead");
+            }
         }
     }
 }

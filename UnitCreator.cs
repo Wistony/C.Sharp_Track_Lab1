@@ -12,6 +12,7 @@ namespace Lab1_CreationalPatterns
             unitBuilder.SetMovement();
             unitBuilder.SetWeapon();
             unitBuilder.SetType();
+            unitBuilder.SetHealth();
             return unitBuilder.Unit;
         }
     }
